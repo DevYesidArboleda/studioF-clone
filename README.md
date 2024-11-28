@@ -16,21 +16,46 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Studio F - Réplica de Tienda en Línea
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Este proyecto es una réplica de la tienda en línea de Studio F, implementada utilizando Next.js, React y Tailwind CSS. La aplicación incluye varias características clave de una tienda en línea moderna, incluyendo un carrusel de productos, páginas de detalles de productos y un formulario de contacto funcional.
 
-## Learn More
+## Características Principales
 
-To learn more about Next.js, take a look at the following resources:
+1. **Página Principal**
+   - Barra de navegación con logo, barra de búsqueda e iconos de acción
+   - Banner promocional a ancho completo
+   - Carrusel de productos con navegación, paginación y barra de progreso
+   - Filtros y opciones de ordenamiento para productos
+   - Sección de pestañas con formulario, video, productos recomendados y carrusel de imágenes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Página de Detalles del Producto**
+   - Imagen ampliada del producto
+   - Información detallada del producto (nombre, precio, descripción)
+   - Selector de talla
+   - Botones para añadir al carrito y a favoritos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Formulario de Contacto**
+   - Campos para nombre, email y mensaje
+   - Envío de correo electrónico funcional utilizando Resend
 
-## Deploy on Vercel
+4. **Componentes Reutilizables**
+   - ProductCard: Tarjeta de producto reutilizable
+   - ProductCarousel: Carrusel de productos con Swiper.js
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tecnologías Utilizadas
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js 13 (App Router)
+- React 18
+- Tailwind CSS
+- shadcn/ui para componentes de UI
+- Swiper.js para el carrusel de productos
+- Resend para el envío de correos electrónicos
+
+## Configuración del Proyecto
+
+1. Clona el repositorio
+2. Instala las dependencias: `npm install`
+3. Crea un archivo `.env.local` y añade tu API key de Resend:
+
+
