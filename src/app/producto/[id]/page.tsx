@@ -25,7 +25,11 @@ function getProductData(id: string) {
   return products.find(p => p.id === id)
 }
 
-export default function ProductPage({ params }: { params: { id: string } }) {
+interface PageProps {
+    params: { id: string }
+  }
+
+export default function ProductPage({ params }: PageProps) {
   const product = getProductData(params.id)
 
   if (!product) {
