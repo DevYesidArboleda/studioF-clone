@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Heart, Search, ShoppingBag, ChevronDown, Filter, ArrowUpDown } from 'lucide-react'
+import { Heart, Search, ShoppingBag} from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
