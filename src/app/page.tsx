@@ -4,13 +4,6 @@ import { Heart, Search, ShoppingBag, ChevronDown, Filter, ArrowUpDown } from 'lu
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 import { ProductCarousel } from './components/ProductCarousel'
