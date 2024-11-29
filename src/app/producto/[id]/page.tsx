@@ -32,7 +32,7 @@ function getProductData(id: string) {
 }
 
 export async function generateMetadata(
-  { params, searchParams }: Props,
+  { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
