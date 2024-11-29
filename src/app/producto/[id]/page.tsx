@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ChevronLeft, Heart, ShoppingCart } from 'lucide-react'
+import type { Metadata, ResolvingMetadata } from 'next'
 
 import { Button } from "@/components/ui/button"
 import {
@@ -12,25 +13,55 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
+type Props = {
+  params: Promise<{ id: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+
 // Esta función simula la obtención de datos del producto
 // En una aplicación real, esto se conectaría a una API o base de datos
 function getProductData(id: string) {
-  const products = [
-    { id: 'rec1', name: "Producto 1", image: "/producto1.jpg", price: 99.99, description: "Descripción detallada del Producto 1" },
-    { id: 'rec2', name: "Producto 2", image: "/producto2.jpg", price: 89.99, discount: 0.1, description: "Descripción detallada del Producto 2" },
-    { id: "rec3",name: "Producto 3", image: "/producto3.jpg", price: 79.99, description: "Descripción detallada del Producto 3"  },
-    { id: "rec4",name: "Producto 4", image: "/producto4.jpg", price: 109.99, discount: 0.15, description: "Descripción detallada del Producto 4"  },
-    // Añade más productos aquí si lo deseas
-  ]
+    const products = [
+      { id: 'rec1', name: "Producto 1", image: "/producto1.jpg", price: 99.99, description: "Descripción detallada del Producto 1" },
+      { id: 'rec2', name: "Producto 2", image: "/producto2.jpg", price: 89.99, discount: 0.1, description: "Descripción detallada del Producto 2" },
+      { id: "rec3",name: "Producto 3", image: "/producto3.jpg", price: 79.99, description: "Descripción detallada del Producto 3"  },
+      { id: "rec4",name: "Producto 4", image: "/producto4.jpg", price: 109.99, discount: 0.15, description: "Descripción detallada del Producto 4"  },
+      // Añade más productos aquí si lo deseas
+    ]
   return products.find(p => p.id === id)
 }
 
-interface PageProps {
-    params: { id: string }
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const id = (await params).id
+
+  // fetch data
+  const product = await getProductData(id)
+
+  if (!product) {
+    return {
+      title: 'Producto no encontrado',
+    }
   }
 
-export default function ProductPage({ params }: PageProps) {
-  const product = getProductData(params.id)
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || []
+
+  return {
+    title: product.name,
+    description: product.description,
+    openGraph: {
+      images: [product.image, ...previousImages],
+    },
+  }
+}
+
+export default async function ProductPage({ params, searchParams }: Props) {
+  const id = (await params).id
+  const product = await getProductData(id)
 
   if (!product) {
     notFound()
