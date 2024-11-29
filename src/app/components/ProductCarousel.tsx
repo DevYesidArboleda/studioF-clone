@@ -23,7 +23,7 @@ interface ProductCarouselProps {
 
 export function ProductCarousel({ products }: ProductCarouselProps) {
   const [progress, setProgress] = useState(0)
-  const swiperRef = useRef(null)
+  const swiperRef:any = useRef(null)
 
   return (
     <div className="relative">
