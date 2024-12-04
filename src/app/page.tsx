@@ -11,6 +11,8 @@ import { FormTab } from './components/FormTab'
 import { VideoTab } from './components/VideoTab'
 import { RecommendedProductsTab } from './components/RecommendedProductsTab'
 import { ImageCarouselTab } from './components/ImageCarouselTab'
+import FullWidthBanner from './components/FullWidthBanner'
+import ScrollSection from './components/ScrollSection'
 
 export default function Home() {
   const products = [
@@ -50,6 +52,25 @@ export default function Home() {
           </Button>
         </div>
       </nav>
+
+      <FullWidthBanner 
+        backgroundImage="/hues-of-paradise-treasure-banner-desk.jpg"
+        text="Entre el blanco de los velos y el azul del cielo, comienza el juego que celebra más grande que tenemos.  Acompaña a  mamá  a descubrir todos los tesoros que STUDIO F ha escondido para ella, en esta excitante "
+      />
+
+      <ScrollSection 
+              backgroundImage="/hues-of-paradise-colores-banner-desk.jpg"
+              images={[
+                "/hues-of-paradise-scroll-1.jpg",
+                "/hues-of-paradise-scroll-2.jpg",
+                "/hues-of-paradise-scroll-3.jpg",
+                "/hues-of-paradise-scroll-4.jpg",
+                "/hues-of-paradise-scroll-5.jpg",
+                "/hues-of-paradise-scroll-6.jpg",
+                "/hues-of-paradise-scroll-7.jpg",
+                "/hues-of-paradise-scroll-8.jpg",
+              ]}
+            />
 
       {/* Banner */}
       <div className="relative w-full h-64 md:h-96">
