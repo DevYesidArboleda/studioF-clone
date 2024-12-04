@@ -43,6 +43,10 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({ backgroundImage, images }
     });
   }, [scrollPosition, images.length, totalRows]);
 
+  const setImageRef = (el: HTMLDivElement | null, index: number) => {
+    imageRefs.current[index] = el;
+  };
+
   return (
     <div 
       ref={sectionRef}
@@ -60,7 +64,7 @@ const ScrollSection: React.FC<ScrollSectionProps> = ({ backgroundImage, images }
           {images.map((image, index) => (
             <div
               key={index}
-              ref={el => imageRefs.current[index] = el}
+              ref={(el)=> setImageRef(el, index)}
               className="relative flex items-center justify-center transition-all duration-300 ease-out p-4 bg-white"
               style={{
                 width: '328px',
